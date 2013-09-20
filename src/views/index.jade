@@ -6,6 +6,12 @@ html(lang="en")
 		link(href='css/styles.css', rel='stylesheet')
 	body
 		.container
-		h1.center Live PNR Status
+			h2.text-center PNR Live
+			form
+				.form-group
+					input.form-control(type='text', placeholder='Enter your PNR number')
+				.form-group
+					button.btn.btn-primary.form-control(type='button') Start Fetching
+
 		//Only for development
 		script(src="http://localhost:35729/livereload.js")

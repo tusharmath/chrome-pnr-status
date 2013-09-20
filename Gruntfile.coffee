@@ -16,11 +16,12 @@ grunt_config =
 	
 	
 	watch: 
-		jade: files: "./src/views/**", tasks: ["jade"], options: livereload: true
-		less: files: "./src/less/**", tasks: ["less"], options: livereload: true
-		css: files: "./src/css/**", tasks: ["copy:css"], options: livereload: true
-		js: files: "./src/js/**", tasks: ["copy:js"], options: livereload: true
-		img: files: "./src/img/**", tasks: ["copy:img"], options: livereload: true
+		options: livereload: true
+		jade: files: "./src/views/**", tasks: ["jade"]
+		less: files: "./src/less/**", tasks: ["less"]
+		css: files: "./src/css/**", tasks: ["copy:css"]
+		js: files: "./src/js/**", tasks: ["copy:js"]
+		img: files: "./src/img/**", tasks: ["copy:img"]
 
 	
 
