@@ -7,11 +7,49 @@ html(lang="en")
 	body
 		.container
 			h2.text-center PNR Live
-			form
+			form(role="form")
 				.form-group
 					input.text-center.form-control(type='text', placeholder='Enter your PNR number')
 				.form-group
 					button.btn.btn-primary.form-control(type='button') Start Fetching
+			.panel.panel-default
+				.panel-heading.text-center
+					strong Waiting
+				.panel-body
+					strong Passenger list:
+					ol
+						li W/L 1 
+						li W/L 2
+					hr
+					div
+						strong Chart Prepared:
+						span.pull-right No
+					div
+						strong Train Number: 
+						span.pull-right 12989
+					div
+						strong Train Name: 
+						span.pull-right Ajmer Express
+					div
+					hr
+					p
+						span Boarding at 
+						span.text-info Ajmer 
+						span  on 
+						span.text-info 10-Jan-2013, 3:45 pm
+						
+						span , reservation from 
+						span.text-info Ajmer
+						span  to 
+						span.text-info Vadodara
 
+						span  and arriving on 
+						span.text-info 13-Jan-2013, 1:05 am
+
+
+
+				.panel-footer.text-muted.text-center as on - 26 Jan 2013, 4:45 pm
+
+				
 		//Only for development
 		script(src="http://localhost:35729/livereload.js")
