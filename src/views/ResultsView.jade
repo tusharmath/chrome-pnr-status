@@ -1,0 +1,50 @@
+.panel.panel-default
+	.panel-heading.text-center
+		strong Waiting
+	.panel-body
+		div
+			ol
+				li(ng-repeat="passenger in ResultView.passenger") {{passenger.status}}
+
+		hr
+
+		div
+			strong Departure in:
+			span.pull-right.text-info TODO
+		
+		div
+			strong Chart Prepared:
+			span.pull-right.text-info {{ResultView.chart_prepared}}
+		
+		hr
+		div
+			strong Train Name: 
+			span.pull-right.text-info {{ResultView.train_name}}
+		
+		div
+			strong Train Number: 
+			span.pull-right.text-info {{ResultView.train_number}}
+		
+		
+		div
+			strong Arrival Time:
+			span.text-info.pull-right {{ResultView.travel_date.timestamp}}
+		
+		div
+			strong Boarding Station:
+			span.text-info.pull-right {{ResultView.board.name}}
+		
+		div
+			strong Departure time:
+			span.text-info.pull-right(ng-model="ResultView.from.time")
+		
+		div
+			strong Reservation :
+			span.pull-right.text-info
+				span Ajmer
+				span  to 
+				span Delhi
+		
+		
+		
+	.panel-footer.text-muted.text-center as on - 26 Jan 2013, 4:45 pm

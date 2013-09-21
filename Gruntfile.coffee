@@ -7,7 +7,13 @@ grunt_config =
 		watch: files: "./bin/index.html" : "./src/views/index.jade"
 
 	coffee:
-		watch: files: "./bin/js/main.js" : "./src/coffee/*.coffee"
+		watch: 
+			expand: true
+			flatten: true
+			src: ['./src/coffee/*.coffee']
+			dest: './bin/js/'
+			ext: '.js'
+
 	
 	less: 
 		watch: files: "./bin/css/styles.css" : "./src/less/styles.less"
