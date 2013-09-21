@@ -3,7 +3,7 @@
 	"name": "pnr-live",
 	"version": "0.1.0",
 	"window": {
-		"toolbar": true,
+		"toolbar": false,
 		"width": 300,
 		"height": 600
 	}
