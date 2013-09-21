@@ -16,40 +16,56 @@ html(lang="en")
 				.panel-heading.text-center
 					strong Waiting
 				.panel-body
-					strong Passenger list:
-					ol
-						li W/L 1 
-						li W/L 2
-					hr
+					div
+						strong Passenger list:	
+						ol
+							li W/L 1 
+							li W/L 2
+					
+					div
+						strong Departure in:
+						span.pull-right.text-info 4hrs 30 minutes
+					
 					div
 						strong Chart Prepared:
-						span.pull-right No
-					div
-						strong Train Number: 
-						span.pull-right 12989
+						span.pull-right.text-info No
+					
+					hr
 					div
 						strong Train Name: 
-						span.pull-right Ajmer Express
+						span.pull-right.text-info Ajmer Express
+					
 					div
-					hr
-					p
-						span Boarding at 
-						span.text-info Ajmer 
-						span  on 
-						span.text-info 10-Jan-2013, 3:45 pm
-						
-						span , reservation from 
-						span.text-info Ajmer
-						span  to 
-						span.text-info Vadodara
-
-						span  and arriving on 
-						span.text-info 13-Jan-2013, 1:05 am
-
-
-
+						strong Train Number: 
+						span.pull-right.text-info 12989
+					
+					
+					div
+						strong Arrival Time:
+						span.text-info.pull-right 15-Jan-2012, 4:40 am
+					
+					div
+						strong Boarding Station:
+						span.text-info.pull-right Ajmer 
+					
+					div
+						strong Departure time:
+						span.text-info.pull-right 12-Jan-2012, 4:45 pm
+					
+					div
+						strong Reservation :
+						span.pull-right.text-info
+							span Ajmer
+							span  to 
+							span Delhi
+					
+					
+					
 				.panel-footer.text-muted.text-center as on - 26 Jan 2013, 4:45 pm
 
 				
 		//Only for development
 		script(src="http://localhost:35729/livereload.js")
+		script(src='js/angular.js')
+		script(src='js/main.js')
+			

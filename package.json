@@ -4,12 +4,16 @@
 	"description": "demo app of node-webkit",
 	"version": "0.1.0",
 	"keywords": ["demo", "node-webkit"],
+	"devDependencies": {
+		"matchdep": "*"
+	},
 	"dependencies": {
 		"grunt-contrib-watch": "*",
 		"grunt-contrib-coffee": "*",
 		"grunt-contrib-jade": "*",
 		"grunt-contrib-less": "*",
 		"grunt-contrib-copy": "*",
+		"moment": "*",
 		"underscore": "*"
 	}
 }

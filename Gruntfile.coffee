@@ -1,10 +1,13 @@
-tasks = ['watch', 'coffee', 'jade', 'less' , 'copy']
+matchdep = require 'matchdep'
 output = "./build"
 
 grunt_config = 
 	
 	jade: 
 		watch: files: "./bin/index.html" : "./src/views/index.jade"
+
+	coffee:
+		watch: files: "./bin/js/main.js" : "./src/coffee/*.coffee"
 	
 	less: 
 		watch: files: "./bin/css/styles.css" : "./src/less/styles.less"
@@ -15,17 +18,20 @@ grunt_config =
 		js: files :  [expand: true, cwd:'./src', src: ['js/**'], dest: './bin/']
 	
 	
-	watch: 
-		options: livereload: true
-		jade: files: "./src/views/**", tasks: ["jade"]
-		less: files: "./src/less/**", tasks: ["less"]
-		css: files: "./src/css/**", tasks: ["copy:css"]
-		js: files: "./src/js/**", tasks: ["copy:js"]
-		img: files: "./src/img/**", tasks: ["copy:img"]
+	watch:  
+		options: livereload: true, event: 'all'
+		jade:files: "./src/views/**", tasks: ["jade"]
+		less:files: "./src/less/**", tasks: ["less"]
+		css:files: "./src/css/**", tasks: ["copy:css"]
+		js:files: "./src/js/**", tasks: ["copy:js"]
+		img:files: "./src/img/**", tasks: ["copy:img"]		
+		coffee:files: "./src/coffee/**", tasks: ["coffee"]
 
 	
 
-module.exports = (grunt) ->
-	tasks.forEach (task)-> grunt.loadNpmTasks("grunt-contrib-#{task}")
+module.exports = (grunt) ->	
+	matchdep.filter('grunt-*').forEach (task)-> grunt.loadNpmTasks(task)
+
 	grunt.initConfig grunt_config
-	grunt.registerTask 'start', ['jade', 'less', 'copy', 'watch']
+	grunt.registerTask 'build', ['jade', 'less', 'copy', 'coffee']
+	grunt.registerTask 'start', ['build', 'watch']
