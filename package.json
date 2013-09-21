@@ -1,20 +1,20 @@
 {
 	"main": "./bin/index.html",
-	"name": "nw-demo",
-	"description": "demo app of node-webkit",
+	"name": "pnr-live",
 	"version": "0.1.0",
-	"keywords": ["demo", "node-webkit"],
 	"devDependencies": {
-		"matchdep": "*"
-	},
-	"dependencies": {
+		"matchdep": "*",
 		"grunt-contrib-watch": "*",
 		"grunt-contrib-coffee": "*",
 		"grunt-contrib-jade": "*",
-		"restler":"*",
 		"grunt-contrib-less": "*",
 		"grunt-contrib-copy": "*",
+		"grunt-contrib-clean": "*"
+	},
+	"dependencies": {
+		"restler": "*",
 		"moment": "*",
-		"underscore": "*"
+		"underscore": "*",
+		"jade": "*"
 	}
 }

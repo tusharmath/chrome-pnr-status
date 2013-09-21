@@ -1,0 +1,10 @@
+{
+	"main": "./index.html",
+	"name": "pnr-live",
+	"version": "0.1.0",
+	"window": {
+		"toolbar": true,
+		"width": 300,
+		"height": 600
+	}
+}
