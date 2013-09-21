@@ -1,5 +1,5 @@
 "use strict"
-http = require 'http'
+http = require 'restler'
 print = console.log
 
 class PnrStatus 
@@ -9,14 +9,15 @@ class PnrStatus
 	
 	start: -> 
 		me = @	
-		http.get me.url,
-		(response) -> response.on 'data', 
-			(buffer) ->
+		http.get(me.url).on('complete', (result) ->
 				(->
+					debugger
 					if @continue is true
 						@timer = setTimeout (-> me.start()), @interval 
-					@callback JSON.parse buffer.toString()					
+					@callback result
 				).call me
+			)
+
 				
 	stop: ->
 		@continue = false

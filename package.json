@@ -11,6 +11,7 @@
 		"grunt-contrib-watch": "*",
 		"grunt-contrib-coffee": "*",
 		"grunt-contrib-jade": "*",
+		"restler":"*",
 		"grunt-contrib-less": "*",
 		"grunt-contrib-copy": "*",
 		"moment": "*",

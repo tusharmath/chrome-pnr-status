@@ -1,11 +1,10 @@
-.panel.panel-default
+.panel.panel-default(ng-show="ResultView.isLoaded")
 	.panel-heading.text-center
-		strong Waiting
+		strong {{ResultView.currentStatus}}
 	.panel-body
 		div
 			ol
-				li(ng-repeat="passenger in ResultView.passenger") {{passenger.status}}
-
+				li(ng-repeat="passenger in ResultView.passengers") {{passenger.status}}
 		hr
 
 		div
@@ -14,37 +13,45 @@
 		
 		div
 			strong Chart Prepared:
-			span.pull-right.text-info {{ResultView.chart_prepared}}
+			span.pull-right.text-info {{ResultView.chartPrepared}}
 		
 		hr
 		div
 			strong Train Name: 
-			span.pull-right.text-info {{ResultView.train_name}}
+			span.pull-right.text-info.text-capital {{ResultView.trainName}}
 		
 		div
 			strong Train Number: 
-			span.pull-right.text-info {{ResultView.train_number}}
+			span.pull-right.text-info {{ResultView.trainNumber}}
 		
 		
 		div
-			strong Arrival Time:
-			span.text-info.pull-right {{ResultView.travel_date.timestamp}}
+			strong Departure Time:
+			span.text-info.pull-right {{ResultView.departureTime}}
+		
+		div
+			strong Date of Journey:
+			span.text-info.pull-right {{ResultView.departureDate}}
+		
 		
 		div
 			strong Boarding Station:
-			span.text-info.pull-right {{ResultView.board.name}}
+			span.text-info.pull-right.text-capital {{ResultView.boardingStation}}
 		
 		div
-			strong Departure time:
-			span.text-info.pull-right(ng-model="ResultView.from.time")
+			strong Arrival Time:
+			span.text-info.pull-right {{ResultView.arrivalTime}}
 		
 		div
-			strong Reservation :
-			span.pull-right.text-info
-				span Ajmer
-				span  to 
-				span Delhi
+			strong Reservation From:
+			span.pull-right.text-info.text-capital.text-capital {{ResultView.fromStation}}
+				
+		div
+			strong Reservation To:
+			span.pull-right.text-info.text-capital.text-capital {{ResultView.toStation}}
 		
 		
 		
-	.panel-footer.text-muted.text-center as on - 26 Jan 2013, 4:45 pm
+	.panel-footer.text-muted.text-center
+		span as on - 
+		span {{ResultView.timeStamp}}

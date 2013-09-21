@@ -1,13 +1,32 @@
-PnrStatus = require './js/GetPnr'
+PNR_Fetcher = require './js/PnrFetcher'
+PNR_Status = require './js/PnrStatusModel'
 
-window.LivePnrController = ($scope)->
+
+_LivePnrController = ($scope)->
+	$scope.isWorking = false
+	$scope.ResultView =
+		isLoaded: false
+
 	$scope.SubmitView = 
-		pnrNumber :  8616415262
-		status: "idle"
+		button_value: "Start Fetching"
+		button_class: "btn-primary"
+		pnrNumber: 8616415262
 		formSubmit: ->
-			sview = $scope.SubmitView
-			pnr = new PnrStatus sview.pnrNumber, (result)->
-				$scope.$apply -> $scope.ResultView = result.data
-				alert 'data received'
-			pnr.start()
-	$scope.ResultView = {}
+			$scope.isWorking = not $scope.isWorking
+
+			if $scope.isWorking is true
+				$scope.SubmitView.button_class = "btn-warning"
+				$scope.SubmitView.button_value = "Stop Fetching"
+				$scope.pnr = new PNR_Fetcher $scope.SubmitView.pnrNumber, (result)->
+					#know more: http://docs.angularjs.org/api/ng.$rootScope.Scope#$apply
+					$scope.$apply ->
+						$scope.ResultView = new PNR_Status result.data
+						$scope.ResultView.isLoaded = true
+
+				$scope.pnr.start()
+			else
+				$scope.SubmitView.button_class = "btn-primary"
+				$scope.SubmitView.button_value = "Start Fetching"
+				$scope.pnr.stop()	
+		
+window.LivePnrController = _LivePnrController
