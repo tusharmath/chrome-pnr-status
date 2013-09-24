@@ -1,9 +1,9 @@
 doctype 5
-html(lang="en", ng-app)
+html(lang="en", ng-app, ng-csp)
 	head
 		title PNR Live
-		link(href='css/bootstrap.css', rel='stylesheet')
-		link(href='css/styles.css', rel='stylesheet')
+		link(href='content/css/bootstrap.css', rel='stylesheet')
+		link(href='content/css/styles.css', rel='stylesheet')
 	body
 		.container(ng-controller="LivePnrController")
 			h2.text-right PNR Live
@@ -13,6 +13,7 @@ html(lang="en", ng-app)
 			
 				
 		//Only for development
-		//script(src="http://localhost:35729/livereload.js")
-		script(src='js/angular.js')
-		script(src='js/controllers.js')
+		if debug
+			script(src="http://localhost:35729/livereload.js")
+		script(src='content/js/angular.js')
+		script(src='script.js')

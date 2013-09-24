@@ -7,14 +7,17 @@
 		"grunt-contrib-watch": "*",
 		"grunt-contrib-coffee": "*",
 		"grunt-contrib-jade": "*",
+		"grunt-browserify": "*",
 		"grunt-contrib-less": "*",
 		"grunt-contrib-copy": "*",
-		"grunt-contrib-clean": "*"
+		"grunt-contrib-clean": "*",
+		"grunt-string-replace": "*",
+		"jade": "*",
+		"coffeeify": "*"
 	},
 	"dependencies": {
 		"restler": "*",
 		"moment": "*",
-		"underscore": "*",
-		"jade": "*"
+		"underscore": "*"
 	}
 }

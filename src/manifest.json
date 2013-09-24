@@ -1,10 +1,9 @@
 {
-	"main": "./index.html",
-	"name": "pnr-live",
-	"version": "0.1.0",
-	"window": {
-		"toolbar": false,
-		"width": 300,
-		"height": 600
+	"name": "APPLICATION_NAME",
+	"version": "APPLICATION_VERSION",
+	"app": {
+		"background": {
+			"scripts": ["background.js"]
+		}
 	}
 }
