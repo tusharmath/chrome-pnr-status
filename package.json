@@ -4,6 +4,7 @@
 	"version": "0.1.0",
 	"devDependencies": {
 		"matchdep": "*",
+		"grunt-mocha-test": "*",
 		"grunt-contrib-watch": "*",
 		"grunt-contrib-coffee": "*",
 		"grunt-contrib-jade": "*",
@@ -12,6 +13,11 @@
 		"grunt-contrib-copy": "*",
 		"grunt-contrib-clean": "*",
 		"grunt-string-replace": "*",
+		"grunt-file-creator": "*",
+		"should": "*",
+		"amdefine":"*",
+		"requirejs":"*",
+		"mocha":"*",
 		"jade": "*",
 		"coffeeify": "*"
 	},

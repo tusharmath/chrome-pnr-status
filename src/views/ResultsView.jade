@@ -1,57 +1,60 @@
-.panel.panel-default(ng-show="ResultView.isLoaded")
+#ResultsView.panel.panel-default(data-bind="visible: isVisible")
 	.panel-heading.text-center
-		strong {{ResultView.currentStatus}}
+		strong(data-bind="text: bookingStatus") &nbsp
 	.panel-body
 		div
-			ol
-				li(ng-repeat="passenger in ResultView.passengers") {{passenger.status}}
+			ol(data-bind="foreach: passengers")
+				li
+					strong(data-bind="text:status")
+					span :&nbsp
+					span(data-bind="text:seat_number")
 		hr
 
 		div
 			strong Departure in:
-			span.pull-right.text-info TODO
+			span.pull-right.text-info(data-bind="text:timeRemaining")
 		
 		div
 			strong Chart Prepared:
-			span.pull-right.text-info {{ResultView.chartPrepared}}
+			span.pull-right.text-info(data-bind="text:chartPrepared")
 		
 		hr
 		div
 			strong Train Name: 
-			span.pull-right.text-info.text-capital {{ResultView.trainName}}
+			span.pull-right.text-info.text-capital(data-bind="text:trainName") &nbsp
 		
 		div
 			strong Train Number: 
-			span.pull-right.text-info {{ResultView.trainNumber}}
+			span.pull-right.text-info(data-bind="text:trainNumber")
 		
 		
 		div
 			strong Departure Time:
-			span.text-info.pull-right {{ResultView.departureTime}}
+			span.text-info.pull-right TODO
 		
 		div
 			strong Date of Journey:
-			span.text-info.pull-right {{ResultView.departureDate}}
+			span.text-info.pull-right(data-bind="text:travelDate")
 		
 		
 		div
 			strong Boarding Station:
-			span.text-info.pull-right.text-capital {{ResultView.boardingStation}}
+			span.text-info.pull-right.text-capital(data-bind="text:boardingStation") &nbsp
 		
 		div
 			strong Arrival Time:
-			span.text-info.pull-right {{ResultView.arrivalTime}}
+			span.text-info.pull-right TODO
 		
 		div
 			strong Reservation From:
-			span.pull-right.text-info.text-capital.text-capital {{ResultView.fromStation}}
+			span.pull-right.text-info.text-capital.text-capital TODO
 				
 		div
 			strong Reservation To:
-			span.pull-right.text-info.text-capital.text-capital {{ResultView.toStation}}
+			span.pull-right.text-info.text-capital.text-capital TODO
 		
 		
 		
 	.panel-footer.text-muted.text-center
 		span as on - 
-		span {{ResultView.timeStamp}}
+		span(data-bind="text:timeStamp")

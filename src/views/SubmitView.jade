@@ -1,5 +1,6 @@
-form(role="form")
+form#SubmitView(role="form")
 	.form-group
-		input.text-center.form-control(type='text', placeholder='Enter your PNR number', ng-model="SubmitView.pnrNumber", ng-disabled="isWorking")
+		input.text-center.form-control(type='text', placeholder='Enter your PNR number',maxlength="10", data-bind="value: pnrNumber")
 	.form-group
-		button.btn.form-control(type='button', ng-click="SubmitView.formSubmit()", class="{{SubmitView.button_class}}") {{SubmitView.button_value}}
+		button.btn.form-control(type='button', data-bind="click: submit", class="btn-primary") Start Fetching
+

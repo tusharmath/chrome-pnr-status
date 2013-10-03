@@ -1,9 +1,12 @@
 {
 	"name": "APPLICATION_NAME",
 	"version": "APPLICATION_VERSION",
+	"manifest_version": 2,
 	"app": {
-		"background": {
-			"scripts": ["background.js"]
+		"launch": {
+			"local_path": "window.html"
 		}
-	}
+	},
+	"content_security_policy": "script-src 'self' http://localhost:1337/livereload.js 'unsafe-eval'; object-src 'self'"
+
 }

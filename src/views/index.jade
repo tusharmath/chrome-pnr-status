@@ -1,19 +1,19 @@
 doctype 5
-html(lang="en", ng-app, ng-csp)
+html(lang="en")
 	head
 		title PNR Live
 		link(href='content/css/bootstrap.css', rel='stylesheet')
 		link(href='content/css/styles.css', rel='stylesheet')
 	body
-		.container(ng-controller="LivePnrController")
+		.container(ng-controller="pnrController")
 			h2.text-right PNR Live
 			
 			include SubmitView.jade
 			include ResultsView.jade
-			
 				
-		//Only for development
+		
 		if debug
-			script(src="http://localhost:35729/livereload.js")
-		script(src='content/js/angular.js')
-		script(src='script.js')
+			script(src='http://localhost:1337/livereload.js')
+		script(src='content/js/lib/require.js', data-main="content/js/app.js")
+			
+
