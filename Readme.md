@@ -1,3 +1,3 @@
-![Resize icon][2] Application Snapshot
+Checkout the releases page to download and install the extension.
 
-[2]: src/content/img/pnr-live.jpeg 
+<img src="icons/pnr-live.jpeg " style="height:50%; width: 50%" />

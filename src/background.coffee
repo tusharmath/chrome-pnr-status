@@ -1,3 +1,10 @@
+height = 600
+width = 300
+
 chrome.app.runtime.onLaunched.addListener ->
 	chrome.app.window.create "window.html",
-		bounds: width: 400, height: 600
+		bounds:
+			height: height
+			width: width
+		resizable: false
+			
