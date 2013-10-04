@@ -81,13 +81,11 @@ grunt_config =
 		coffee:files: "./src/**/*.coffee", tasks: ["coffee"]
 
 
-	compress:
-		main:
-			options: archive: "<%= opt.releasePath%>/pnr-status-live.<%= pkg.version%>.zip"
-				
-			files: [
-				src: ["**"], cwd: '<%= opt.debugPath%>', isFile: true, expand: true
-			]
+	crx:
+		production:
+			src: '<%= opt.debugPath%>'
+			dest: "<%= opt.releasePath%>/PnrLive.<%= pkg.version%>.crx"
+			privateKey: "./chrome-apps.pem"
 	
 
 module.exports = (grunt) ->	
@@ -96,7 +94,7 @@ module.exports = (grunt) ->
 	grunt.initConfig grunt_config
 
 	grunt.registerTask 'start', ['clean', 'jade:debug', 'less', 'copy', 'string-replace', 'coffee', 'watch']
-	grunt.registerTask 'package', ['clean', 'jade:release', 'less', 'copy', 'string-replace', 'coffee', 'compress']
+	grunt.registerTask 'package', ['clean', 'jade:release', 'less', 'copy', 'string-replace', 'coffee', 'crx']
 	grunt.registerTask 'publish', ['release', 'package']
 	
 
