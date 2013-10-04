@@ -3,22 +3,19 @@
 		strong(data-bind="text: bookingStatus") &nbsp
 	.panel-body
 		div
+
 			ol(data-bind="foreach: passengers")
 				li
-					strong(data-bind="text:status")
-					span :&nbsp
-					span(data-bind="text:seat_number")
+					span(data-bind="text:status")
+					span.pull-right(data-bind="text: berth() + ', ' + coach() ")
+					
+					
 		hr
 
-		div
-			strong Departure in:
-			span.pull-right.text-info(data-bind="text:timeRemaining")
-		
 		div
 			strong Chart Prepared:
 			span.pull-right.text-info(data-bind="text:chartPrepared")
 		
-		hr
 		div
 			strong Train Name: 
 			span.pull-right.text-info.text-capital(data-bind="text:trainName") &nbsp
@@ -27,31 +24,17 @@
 			strong Train Number: 
 			span.pull-right.text-info(data-bind="text:trainNumber")
 		
-		
-		div
-			strong Departure Time:
-			span.text-info.pull-right TODO
-		
 		div
 			strong Date of Journey:
 			span.text-info.pull-right(data-bind="text:travelDate")
 		
-		
-		div
-			strong Boarding Station:
-			span.text-info.pull-right.text-capital(data-bind="text:boardingStation") &nbsp
-		
-		div
-			strong Arrival Time:
-			span.text-info.pull-right TODO
-		
 		div
 			strong Reservation From:
-			span.pull-right.text-info.text-capital.text-capital TODO
+			span.pull-right.text-info.text-capital.text-capital(data-bind="text:fromStation")
 				
 		div
 			strong Reservation To:
-			span.pull-right.text-info.text-capital.text-capital TODO
+			span.pull-right.text-info.text-capital.text-capital(data-bind="text:toStation")
 		
 		
 		

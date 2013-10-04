@@ -15,7 +15,7 @@ require [
 		onResponse = (response) ->
 			console.log response
 			
-			views.updateView new ResultsViewModel(response.data, true), resultsView
+			views.updateView new ResultsViewModel(response, true), resultsView
 
 				
 		#Binding Submit View

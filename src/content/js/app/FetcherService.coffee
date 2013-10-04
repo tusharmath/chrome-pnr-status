@@ -1,7 +1,8 @@
+#8504436159
 define ['app/TimerService', 'app/HttpService'], (TimerService, HttpService) ->
 
 	class FetcherService
-		constructor: (@pnrNumber=1234567890, @interval=8000) ->
+		constructor: (@pnrNumber=6712133131, @interval=8000) ->
 			#Initialize Timer Service
 			timerService = new TimerService @interval
 
@@ -9,9 +10,10 @@ define ['app/TimerService', 'app/HttpService'], (TimerService, HttpService) ->
 				timerService.stop()
 			
 			@start= (callback) ->
+				me = @
 				fetch = ->
 					callback()
-					HttpService.Get 'http://randomapiurl/#{me.pnrNumber}', callback
+					HttpService.Get "http://www.railpnrapi.com/#{me.pnrNumber}", callback
 				timerService.start(fetch)
 
 
