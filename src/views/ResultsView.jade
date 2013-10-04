@@ -1,4 +1,4 @@
-#ResultsView.panel.panel-default(data-bind="visible: isVisible")
+#ResultsView.panel.panel-default(data-bind="css:{'hide': isVisible() === false }")
 	.panel-heading.text-center
 		strong(data-bind="text: bookingStatus") &nbsp
 	.panel-body

@@ -4,34 +4,22 @@ requirejs.config
 		app: "../app"
 
 require [
-			'komapping'
-			'knockout'
 			'app/SubmitViewModel'
 			'app/ResultsViewModel'
+			'app/ViewUtil'
 	],
-	(komapping, ko, SubmitViewModel, ResultsViewModel) ->
+	(SubmitViewModel, ResultsViewModel, ViewUtil) ->
 		
+		views = new ViewUtil
 
-		#Generic Function
-		ko.mapping = komapping
-		ko.applyBindingsTo = (model, id) ->
-			ko.applyBindings model, document.getElementById id
-
-
-		#Binding Submit SubmitViewModel
-		resultsView = false
 		onResponse = (response) ->
 			console.log response
-			resultsViewData = new ResultsViewModel response.data	
-			if not resultsView
-				resultsView = ko.mapping.fromJS resultsViewData
-				ko.applyBindingsTo resultsView, 'ResultsView'
-			else
-				ko.mapping.fromJS resultsViewData, resultsView
+			
+			views.updateView new ResultsViewModel(response.data, true), resultsView
+
 				
-
-		submitView = ko.mapping.fromJS new SubmitViewModel(onResponse)
-		ko.applyBindingsTo submitView, 'SubmitView'
-
+		#Binding Submit View
+		submitView = views.bindView new SubmitViewModel(onResponse), 'SubmitView'
+		resultsView = views.bindView new ResultsViewModel, 'ResultsView'
 
 

@@ -1,6 +1,5 @@
 form#SubmitView(role="form")
 	.form-group
-		input.text-center.form-control(type='text', placeholder='Enter your PNR number',maxlength="10", data-bind="value: pnrNumber")
+		input.text-center.form-control(type='text', placeholder='Enter your PNR number',maxlength="10", data-bind="value: pnrNumber, css: {loader: loading() === true }, disable: started() === true")
 	.form-group
-		button.btn.form-control(type='button', data-bind="click: submit", class="btn-primary") Start Fetching
-
+		button.btn.form-control(type='button', data-bind="click: submit, css: {'btn-warning': started() === true, 'btn-primary': started() === false}, text: started() === false ?  'Start Fetching': 'Stop Fetching'")
