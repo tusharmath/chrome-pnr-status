@@ -6,7 +6,7 @@ grunt_config =
 
 	opt: 
 		debugPath: './bin/debug',
-		release: './bin/release/<%= pkg.version %>'
+		releasePath: './bin/release'
 
 	release: options: npm: false
 
@@ -34,7 +34,12 @@ grunt_config =
 			]
 		release:
 			options: data: debug: false
-			files: "./bin/window.html" : "./src/views/index.jade"
+			files: [
+				"<%= opt.debugPath%>/window.html" : "./src/views/window.jade"
+			,
+				"<%= opt.debugPath%>/sandboxed.html" : "./src/views/sandboxed.jade"
+			]
+		
 	
 	copy:
 		debug: files: [
@@ -75,22 +80,24 @@ grunt_config =
 			files: ["./src/manifest.json"], tasks: ["string-replace:debug"]
 		coffee:files: "./src/**/*.coffee", tasks: ["coffee"]
 
+
+	compress:
+		main:
+			options: archive: "<%= opt.releasePath%>/pnr-status-live.<%= pkg.version%>.zip"
+				
+			files: [
+				src: ["**"], cwd: '<%= opt.debugPath%>', isFile: true, expand: true
+			]
 	
 
 module.exports = (grunt) ->	
 	matchdep.filterDev('grunt-*').forEach (task)-> grunt.loadNpmTasks(task)
 	grunt_config.pkg = grunt.file.readJSON 'package.json'
 	grunt.initConfig grunt_config
-	#grunt.registerTask 'pack', ['build','clean:pack', 'copy:pack', 'copy:app']
-	grunt.registerTask 'build', [
-		'clean:debug'
-		'jade:debug'
-		'less:debug'
-		'copy:debug'
-		'string-replace:debug'
-		'coffee:debug'
-	]
-	grunt.registerTask 'start', ['build', 'watch']
-	grunt.registerTask 'package', []
+
+	grunt.registerTask 'start', ['clean', 'jade:debug', 'less', 'copy', 'string-replace', 'coffee', 'watch']
+	grunt.registerTask 'package', ['clean', 'jade:release', 'less', 'copy', 'string-replace', 'coffee', 'compress']
+	grunt.registerTask 'publish', ['release', 'package']
+	
 
 
