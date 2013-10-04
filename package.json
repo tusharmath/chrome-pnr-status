@@ -1,16 +1,16 @@
 {
-	"name": "pnr-live",
-	"version": "0.1.0",
-	"devDependencies": {
-		"matchdep": "*",
-		"grunt-contrib-watch": "*",
-		"grunt-contrib-coffee": "*",
-		"grunt-contrib-jade": "*",
-		"grunt-contrib-less": "*",
-		"grunt-contrib-copy": "*",
-		"grunt-contrib-clean": "*",
-		"grunt-string-replace": "*",
-		"grunt-release": "*",
-		"grunt-crx": "*"
-	}
+  "name": "pnr-live",
+  "version": "0.1.1",
+  "devDependencies": {
+    "matchdep": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-jade": "*",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-string-replace": "*",
+    "grunt-release": "*",
+    "grunt-crx": "*"
+  }
 }
