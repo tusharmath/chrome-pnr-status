@@ -5,10 +5,11 @@ define ['app/FetcherService'], (FetecherService) ->
 			@started = false
 			@loading = false
 			
-			fService = new FetecherService Number(@pnrNumber)
-
+			fService = new FetecherService
 					
 			@submit=->	
+				return if not @pnrNumber()
+
 				@loading true
 
 				me = @
@@ -21,7 +22,8 @@ define ['app/FetcherService'], (FetecherService) ->
 						me.loading true
 
 				if @started() is false 
-					fService.start onResponse
+					
+					fService.start @pnrNumber(), onResponse
 				else 
 					fService.stop()
 				@started not @started()

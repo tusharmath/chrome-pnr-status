@@ -8,6 +8,7 @@ grunt_config =
 		debugPath: './bin/debug',
 		release: './bin/release/<%= pkg.version %>'
 
+	release: options: npm: false
 
 	coffee:
 		debug: {
@@ -62,7 +63,7 @@ grunt_config =
 	less: 
 		debug: files: "<%= opt.debugPath%>/content/css/styles.css" : "./src/less/styles.less"
 	
-	clean: pack: ['./bin/node-webkit.app/Contents/Resources']
+	clean: debug: ["<%= opt.debugPath %>"]
 
 	watch:
 		binupdate: files: ["<%= opt.debugPath%>/**"], options: livereload: 1337
@@ -82,10 +83,14 @@ module.exports = (grunt) ->
 	grunt.initConfig grunt_config
 	#grunt.registerTask 'pack', ['build','clean:pack', 'copy:pack', 'copy:app']
 	grunt.registerTask 'build', [
-		'jade:debug', 
-		'less:debug',
-		'copy:debug',
-		'string-replace:debug',
+		'clean:debug'
+		'jade:debug'
+		'less:debug'
+		'copy:debug'
+		'string-replace:debug'
 		'coffee:debug'
 	]
 	grunt.registerTask 'start', ['build', 'watch']
+	grunt.registerTask 'package', []
+
+

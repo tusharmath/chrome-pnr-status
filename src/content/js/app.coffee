@@ -12,9 +12,7 @@ require [
 		
 		views = new ViewUtil
 
-		onResponse = (response) ->
-			console.log response
-			
+		onResponse = (response) ->			
 			views.updateView new ResultsViewModel(response, true), resultsView
 
 				
