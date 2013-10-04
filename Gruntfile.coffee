@@ -26,7 +26,11 @@ grunt_config =
 	jade: 
 		debug:
 			options: data: debug: true
-			files: "<%= opt.debugPath%>/window.html" : "./src/views/index.jade"
+			files: [
+				"<%= opt.debugPath%>/window.html" : "./src/views/window.jade"
+			,
+				"<%= opt.debugPath%>/sandboxed.html" : "./src/views/sandboxed.jade"
+			]
 		release:
 			options: data: debug: false
 			files: "./bin/window.html" : "./src/views/index.jade"

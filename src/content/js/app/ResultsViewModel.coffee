@@ -2,7 +2,7 @@ define ['lodash'], (_) ->
 	class ResultsViewModel
 		constructor:(data={}, @isVisible=false) ->	
 			@passengers = data.pax
-			@chartPrepared = if data.charted is true then 'YES' else 'NO'
+			@chartPrepared = if data.charted is true then 'Yes' else 'No'
 			
 			@bookingStatus = if ( _.every data.pax, (i)-> i.status is 'CNF') is true then 'Confirmed' else 'Not Confirmed'
 			

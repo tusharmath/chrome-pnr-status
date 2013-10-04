@@ -4,9 +4,13 @@
 	"manifest_version": 2,
 	"permissions": ["http://www.railpnrapi.com/*"],
 	"app": {
-		"launch": {
-			"local_path": "window.html"
+		"background": {
+			"scripts": ["background.js"]
 		}
 	},
-	"content_security_policy": "script-src 'self' http://localhost:1337/livereload.js 'unsafe-eval'; object-src 'self'"
+	"sandbox": {
+		"pages": ["sandboxed.html"]
+
+	},
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

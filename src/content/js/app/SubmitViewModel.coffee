@@ -1,6 +1,6 @@
 define ['app/FetcherService'], (FetecherService) ->
 	class SubmitViewModel
-		constructor:(callback, @pnrNumber=8504436159) ->
+		constructor:(callback, @pnrNumber) ->
 			
 			@started = false
 			@loading = false
