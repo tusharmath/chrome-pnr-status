@@ -1,6 +1,11 @@
 {
 	"name": "APPLICATION_NAME",
 	"version": "APPLICATION_VERSION",
+	"icons": {
+		"128": "content/img/app.png",
+		"32": "content/img/app.png",
+		"16": "content/img/app.png"
+	},
 	"manifest_version": 2,
 	"permissions": ["http://www.railpnrapi.com/*"],
 	"app": {
