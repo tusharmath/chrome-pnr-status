@@ -7,4 +7,3 @@ chrome.app.runtime.onLaunched.addListener ->
 			height: height
 			width: width
 		resizable: false
-			

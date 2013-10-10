@@ -18,6 +18,7 @@ grunt_config =
 			src: [
 				'content/js/app/*.coffee'
 				'background.coffee'
+				'events.coffee'
 				'content/js/app.coffee'
 			],
 			dest: '<%= opt.debugPath%>',
@@ -78,7 +79,8 @@ grunt_config =
 			files: ["./src/content/**"],tasks: ["copy:debug"]
 		manifest:
 			files: ["./src/manifest.json"], tasks: ["string-replace:debug"]
-		coffee:files: "./src/**/*.coffee", tasks: ["coffee"]
+		coffee:
+			files: ["./src/**/*.coffee", "./src/background.coffee"], tasks: ["coffee"]
 
 
 	crx:
